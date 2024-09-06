@@ -58,6 +58,20 @@ exports.createProject = async (req, res, next) => {
   }
 };
 
+// Get all projects
+exports.getProjects = async (req, res, next) => {
+  try {
+    const project = await Project.find();
+    if (!project) {
+      return res.status(404).json({ success: false, message: "Project not found" });
+    }
+    res.status(200).json({ success: true, data: project });
+  } catch (error) {
+    console.error('Error in getProject:', error);
+    next(error);
+  }
+};
+
 // Get a single Project by ID
 exports.getProject = async (req, res, next) => {
   try {
@@ -71,6 +85,7 @@ exports.getProject = async (req, res, next) => {
     next(error);
   }
 };
+
 
 // Update a Project by ID
 exports.updateProject = async (req, res, next) => {

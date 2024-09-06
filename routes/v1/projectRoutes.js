@@ -4,6 +4,7 @@ const upload = multer();
 const {
   createProject,
   getProject,
+  getProjects,
   updateProject,
   deleteProject,
 } = require('../../controllers/projectController');
@@ -11,7 +12,7 @@ const {
 const router = express.Router();
 
 router.route('/')
-  .get( getProject)
+  .get( getProjects)
   .post(upload.any(),createProject);
 
 router.route('/:id')

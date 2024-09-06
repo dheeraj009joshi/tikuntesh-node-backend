@@ -7,16 +7,17 @@ const {
   deleteBlog,
 } = require('../../controllers/blogController');
 const { protect } = require('../../middlewares/authMiddleware');
-
+const multer = require('multer');
+const upload = multer(); 
 const router = express.Router();
 
 router.route('/')
   .get( getBlogs)
-  .post( createBlog);
+  .post( upload.any(),createBlog);
 
 router.route('/:id')
   .get( getBlog)
-  .put( updateBlog)
+  .put(upload.any(), updateBlog)
   .delete( deleteBlog);
 
 

@@ -10,7 +10,7 @@ const { BlobServiceClient } = require('@azure/storage-blob');
 async function uploadImageAndGetUrl(imageBuffer, imageName = null) {
   try {
     // SAS Token-based URL
-    const sasUrl = 'https://tikuntechwebimages.blob.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2024-09-06T09:31:28Z&st=2024-09-06T01:31:28Z&spr=https,http&sig=i8N9vWIRnRSMToPPJgvU3CrzTFqJwKJZc5m%2FrmyN42w%3D'; // Replace with your SAS URL
+    const sasUrl = 'https://tikuntechwebimages.blob.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2040-09-06T22:21:37Z&st=2024-09-06T14:21:37Z&spr=https&sig=nMvWOuicYnFS%2BS4MVRqzbLYtR4lGCdg5uoomFv8hI88%3D'; // Replace with your SAS URL
 
     const blobServiceClient = new BlobServiceClient(sasUrl);
 

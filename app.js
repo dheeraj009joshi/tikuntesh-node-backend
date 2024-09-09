@@ -15,23 +15,14 @@ const app = express();
 
 // Body parser
 app.use(express.json());
-const allowedOrigins = ['https://tikunteck-web-git-main-marotis-projects.vercel.app'];
+// const allowedOrigins = ['https://tikunteck-web-git-main-marotis-projects.vercel.app'];
 
 const corsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-
-    // Check if the origin is in the allowed origins list
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
+  origin: 'https://tikunteck-web-git-main-marotis-projects.vercel.app', // Replace with your front-end URL
+  methods: ['GET', 'POST'], // Specify allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
 };
 
-// Use the cors middleware with the configured options
 app.use(cors(corsOptions));
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {

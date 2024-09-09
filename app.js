@@ -15,16 +15,24 @@ const app = express();
 
 // Body parser
 app.use(express.json());
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow specific origin or any other origin if undefined (for non-browser clients)
-    if (!origin || origin === 'https://tikunteck-web-git-main-marotis-projects.vercel.app') {
+const allowedOrigins = ['https://tikunteck-web-git-main-marotis-projects.vercel.app'];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    // Check if the origin is in the allowed origins list
+    if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      callback(null, true); // Allow all other origins
+      callback(new Error('Not allowed by CORS'));
     }
   }
-}));
+};
+
+// Use the cors middleware with the configured options
+app.use(cors(corsOptions));
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

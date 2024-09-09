@@ -15,8 +15,16 @@ const app = express();
 
 // Body parser
 app.use(express.json());
-app.use(cors());
-app.options('*', cors());
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow specific origin or any other origin if undefined (for non-browser clients)
+    if (!origin || origin === 'https://tikunteck-web-git-main-marotis-projects.vercel.app') {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all other origins
+    }
+  }
+}));
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

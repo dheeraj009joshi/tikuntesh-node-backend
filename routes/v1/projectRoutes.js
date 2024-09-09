@@ -19,7 +19,4 @@ router.route('/:id')
   .get(getProject)
   .put(upload.any(),updateProject)
   .delete( deleteProject);
-
-
-
 module.exports = router;

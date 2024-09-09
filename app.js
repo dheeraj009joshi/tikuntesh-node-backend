@@ -16,6 +16,7 @@ const app = express();
 // Body parser
 app.use(express.json());
 app.use(cors());
+app.options('*', cors());
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

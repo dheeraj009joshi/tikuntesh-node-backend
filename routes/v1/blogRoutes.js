@@ -5,14 +5,14 @@ const {
   getBlog,
   updateBlog,
   deleteBlog,
-} = require('../../controllers/blogController');
+} = require('../../functions/controllers/blogController');
 const { protect } = require('../../middlewares/authMiddleware');
 const multer = require('multer');
 const upload = multer(); 
 const router = express.Router();
 
 router.route('/')
-  .get( getBlogs)
+  .get( protect, getBlogs)
   .post( upload.any(),createBlog);
 
 router.route('/:id')

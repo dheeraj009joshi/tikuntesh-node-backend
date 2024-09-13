@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb+srv://dlovej009:Dheeraj009@cluster0.zo1ek.mongodb.net/Data", {
+    await mongoose.connect("mongodb+srv://dlovej009:Dheeraj009@cluster0.zo1ek.mongodb.net/Data?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       tls: true,  // Use TLS/SSL

@@ -38,6 +38,9 @@ app.use('/.netlify/functions/api/v1/project', require('./routes/v1/projectRoutes
 app.use('/.netlify/functions/api/v1/blog', require('./routes/v1/blogRoutes'));
 app.use('/.netlify/functions/api/v1/user', require('./routes/v1/userRoutes'));
 
+app.route("/").get((req,res)=>{
+res.send({success:true})
+})
 // normal  routers
 app.use('/api/v1/project', require('./routes/v1/projectRoutes'));
 app.use('/api/v1/blog', require('./routes/v1/blogRoutes'));

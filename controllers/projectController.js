@@ -1,6 +1,6 @@
 const Project = require("../models/project");
 const User = require("../models/user");
-const { uploadImageAndGetUrl } = require('../../config/azure-blob');
+const { uploadImageAndGetUrl } = require('../config/azure-blob');
 
 // Create a new Project
 exports.createProject = async (req, res, next) => {

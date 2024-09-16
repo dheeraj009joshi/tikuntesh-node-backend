@@ -1,5 +1,5 @@
 const Blog = require("../models/blog");
-const { uploadImageAndGetUrl } = require('../../config/azure-blob');
+const { uploadImageAndGetUrl } = require('../config/azure-blob');
 
 // Create a new Blog
 exports.createBlog = async (req, res, next) => {

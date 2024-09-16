@@ -51,3 +51,6 @@ module.exports.handler= async(event , context)=>{
   const result = await(event,context);
   return result
 }
+
+
+module.exports=app

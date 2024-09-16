@@ -5,7 +5,7 @@ const {
   getBlog,
   updateBlog,
   deleteBlog,
-} = require('../../functions/controllers/blogController');
+} = require('../../controllers/blogController');
 const { protect } = require('../../middlewares/authMiddleware');
 const multer = require('multer');
 const upload = multer(); 
